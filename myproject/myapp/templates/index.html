@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <link rel="manifest" href="{% static 'manifest.json' %}">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'icon-192x192.png' %}">
+  <title>Hello, World!</title>
+</head>
+
+<body>
+  <h1>Hello, World!</h1>
+ <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/static/service-worker.js')
+        .then(function (registration) {
+          console.log('Service Worker registered with scope:', registration.scope);
+        }).catch(function (error) {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
+  </script>
+</body>
+
+</html>
